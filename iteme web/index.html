@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITEME</title>
+    <link rel="icon" href="./img/i.jpg" type="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nav">
+<nav>
+    
+    <span>ITEME</span>
+    <ul class="listychall">
+        <li><a href="index.html" id="home">Home</a></li>
+        <li><a href="#" id="about">About Us</a></li>
+        <li><a href="#" id="services">Services</a></li>
+        <li><a href="#" id="courses">Courses</a></li>
+        <li><a href="#" id="contact">Contact Us</a></li>
+        <li class="language-selector">
+            <i class="fas fa-globe language-icon"></i>
+            <div class="dropdown">
+                <a href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
+                <a href="#" onclick="changeLanguage('rw')">🇷🇼 Kinyarwanda</a>
+                <a href="#" onclick="changeLanguage('sw')">🇰🇪 Kiswahili</a>
+                <a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a>
+                <a href="#" onclick="changeLanguage('zh')">🇨🇳 中文</a>
+                <a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a>
+                <a href="#" onclick="changeLanguage('es')">🇪🇸 Español</a>
+            </div>
+        </li>
+    </ul>
+     <!-- Search functionality -->
+     <div class="search-container" id="searchContainer">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+        <button class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    
+</nav>
+<button class="register-btn" id="registerBtn">Register &nbsp;
+    <i class="fas fa-arrow-right"></i>
+</button>
+
+<div class="paragraph" id="paragraphContainer">
+    <span id="title">Learn, Connect, and Grow with the ITEME website.</span> 
+    <br> <br>
+    <p id="description">At the ITEME website, we believe in providing a 
+        platform for students to access quality education 
+        resources and connect with a real Social media Community.
+    </p>
+</div>
+
+<script>
+    // Function to toggle the search input visibility
+    function toggleSearch() {
+        const searchInput = document.getElementById("searchInput");
+        searchInput.classList.toggle("active"); // Toggle visibility
+        if (searchInput.classList.contains("active")) {
+            searchInput.focus(); // Focus the input when shown
+        }
+    }
+
+    // Basic search function to filter page content (for demonstration)
+    function searchContent() {
+        const query = document.getElementById("searchInput").value.toLowerCase();
+        const contentElements = document.querySelectorAll("body *"); // Select all elements in the body
+
+        contentElements.forEach(element => {
+            if (element.textContent.toLowerCase().includes(query)) {
+                element.style.display = ""; // Show elements that match the search
+            } else {
+                element.style.display = "none"; // Hide non-matching elements
+            }
+        });
+
+        // Reset if search input is cleared
+        if (query === "") {
+            contentElements.forEach(element => {
+                element.style.display = "";
+            });
+        }
+    }
+
+     // JavaScript to hide search bar on scroll
+     window.addEventListener('scroll', function () {
+        const searchContainer = document.getElementById('searchContainer');
+        
+        if (window.scrollY > 50) {
+            searchContainer.classList.add('hidden'); // Hide search bar
+        } else {
+            searchContainer.classList.remove('hidden'); // Show search bar
+        }
+    });
+
+</script>
+
+<script>
+    // JavaScript to hide search bar and register button on scroll
+    window.addEventListener('scroll', function () {
+        const searchContainer = document.getElementById('searchContainer');
+        const registerButton = document.getElementById('registerBtn');
+        
+        if (window.scrollY > 50) {
+            searchContainer.classList.add('hidden'); // Hide search bar
+            registerButton.classList.add('hidden'); // Hide register button
+        } else {
+            searchContainer.classList.remove('hidden'); // Show search bar
+            registerButton.classList.remove('hidden'); // Show register button
+        }
+    });
+</script>
+
+
+<script>
+    // Function to show or hide paragraph based on scroll position
+    window.addEventListener('scroll', function () {
+        const paragraphContainer = document.getElementById('paragraphContainer');
+        
+        if (window.scrollY > 50) {
+            paragraphContainer.classList.add('hidden'); // Hide paragraph
+        } else {
+            paragraphContainer.classList.remove('hidden'); // Show paragraph
+        }
+    });
+</script>
+
+</div>
+<script>
+const translations = {
+    en: {
+        iteme: "Services We Offered by ITEME",
+        youthTitle: "Professional courses",
+        youthDescription: "Rwanda faces significant challenges in creating jobs, especially for its growing youth...",
+        solutionTitle: "Let us know our Solution",
+        solutionDescription: "Our mission is to actively and positively impact our community with basic skills and resources...",
+        missionTitle: "Our Mission",
+        missionDescription: "Our mission is a simple but powerful belief: everyone deserves the opportunity...",
+        valuesTitle: "Our Core Values",
+        valuesDescription: "Empowerment, Self-sufficiency, Community, Sustainability, Integrity",
+    },
+    rw: {
+        iteme: "serivise zitangwa na ITEME",
+        youthTitle: "Urubyiruko rutagira akazi mu Rwanda",
+        youthDescription: "U Rwanda rufite ibibazo bikomeye mu gukora imirimo, cyane cyane ku rubyiruko rukura...",
+        solutionTitle: "Reka tumenye igisubizo cyacu",
+        solutionDescription: "Intego yacu ni ugukora ibikorwa bifatika mu muryango, tugatanga ubumenyi n'ibikoresho...",
+        missionTitle: "Intego Yacu",
+        missionDescription: "Intego yacu ni icyifuzo gikomeye kandi cyoroshye: buri muntu akwiriye amahirwe...",
+        valuesTitle: "Indangagaciro Zacu",
+        valuesDescription: "Gushoboza, Kwihangira Imirimo, Umuryango, Kwihanganira Ibidukikije, Ubunyangamugayo",
+    },
+    sw: {
+        iteme: "ITEME",
+        youthTitle: "Vijana Wasio na Ajira Rwanda",
+        youthDescription: "Rwanda inakabiliwa na changamoto kubwa katika kujenga ajira, hasa kwa vijana wake wanaokua...",
+        solutionTitle: "Jua Suluhisho Letu",
+        solutionDescription: "Dhamira yetu ni kushawishi jamii kwa njia chanya, tukitoa ujuzi na rasilimali muhimu...",
+        missionTitle: "Dhamira Yetu",
+        missionDescription: "Dhamira yetu ni imani rahisi lakini yenye nguvu: kila mtu anastahili nafasi...",
+        valuesTitle: "Maadili Yetu ya Msingi",
+        valuesDescription: "Uwezeshaji, Kujitegemea, Jamii, Uendelevu, Uadilifu",
+    },
+    fr: {
+        iteme: "ITEME",
+        youthTitle: "Jeunesse au chômage au Rwanda",
+        youthDescription: "Le Rwanda fait face à des défis importants dans la création d'emplois, en particulier pour sa jeunesse croissante...",
+        solutionTitle: "Découvrez notre Solution",
+        solutionDescription: "Notre mission est d'avoir un impact positif sur notre communauté avec des compétences de base...",
+        missionTitle: "Notre Mission",
+        missionDescription: "Notre mission est une croyance simple mais puissante : tout le monde mérite une opportunité...",
+        valuesTitle: "Nos Valeurs Fondamentales",
+        valuesDescription: "Autonomisation, Autosuffisance, Communauté, Durabilité, Intégrité",
+    },
+    zh: {
+        iteme: "ITEME",
+        youthTitle: "卢旺达的失业青年",
+        youthDescription: "卢旺达在创造就业方面面临重大挑战，特别是对于其不断增长的年轻人群体...",
+        solutionTitle: "了解我们的解决方案",
+        solutionDescription: "我们的使命是通过基本技能和资源积极影响我们的社区...",
+        missionTitle: "我们的使命",
+        missionDescription: "我们的使命是一个简单而有力的信念：每个人都应该有机会...",
+        valuesTitle: "我们的核心价值",
+        valuesDescription: "赋权，自给自足，社区，可持续性，诚信",
+    },
+    de: {
+        iteme: "ITEME",
+        youthTitle: "Arbeitslose Jugend in Ruanda",
+        youthDescription: "Ruanda steht vor erheblichen Herausforderungen bei der Schaffung von Arbeitsplätzen, insbesondere für seine wachsende Jugend...",
+        solutionTitle: "Lernen Sie unsere Lösung kennen",
+        solutionDescription: "Unsere Mission ist es, unsere Gemeinschaft mit grundlegenden Fähigkeiten und Ressourcen positiv zu beeinflussen...",
+        missionTitle: "Unsere Mission",
+        missionDescription: "Unsere Mission ist ein einfacher, aber kraftvoller Glaube: Jeder verdient die Chance...",
+        valuesTitle: "Unsere Kernwerte",
+        valuesDescription: "Ermächtigung, Eigenständigkeit, Gemeinschaft, Nachhaltigkeit, Integrität",
+    },
+    es: {
+        iteme: "ITEME",
+        youthTitle: "Juventud Desempleada en Ruanda",
+        youthDescription: "Ruanda enfrenta grandes desafíos para crear empleos, especialmente para su creciente juventud...",
+        solutionTitle: "Conozca nuestra Solución",
+        solutionDescription: "Nuestra misión es impactar positivamente en nuestra comunidad con habilidades y recursos básicos...",
+        missionTitle: "Nuestra Misión",
+        missionDescription: "Nuestra misión es una creencia simple pero poderosa: todos merecen la oportunidad...",
+        valuesTitle: "Nuestros Valores Fundamentales",
+        valuesDescription: "Empoderamiento, Autosuficiencia, Comunidad, Sostenibilidad, Integridad",
+    }
+};
+
+function changeLanguage(language) {
+    document.getElementById("iteme").textContent = translations[language].iteme;
+    document.getElementById("youthTitle").textContent = translations[language].youthTitle;
+    document.getElementById("youthDescription").textContent = translations[language].youthDescription;
+    document.getElementById("solutionTitle").textContent = translations[language].solutionTitle;
+    document.getElementById("solutionDescription").textContent = translations[language].solutionDescription;
+    document.getElementById("missionTitle").textContent = translations[language].missionTitle;
+    document.getElementById("missionDescription").textContent = translations[language].missionDescription;
+    document.getElementById("valuesTitle").textContent = translations[language].valuesTitle;
+    document.getElementById("valuesDescription").textContent = translations[language].valuesDescription;
+}
+
+    </script>
+<script>
+    // JavaScript to change navbar background on scroll
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        
+        // Check if the page has been scrolled more than 50 pixels
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(236, 234, 234, 0.9)'; // Solid background when scrolled
+        } else {
+            navbar.style.background = 'rgba(236, 234, 234, 0.5)'; // Transparent background at the top
+        }
+    });
+</script>
+<section class="section2" id="mission">
+    <div class="cause">
+        <!-- <h3>Causes</h3> -->
+        <span class="span3" id="iteme"><b> Services We Offered by ITEME</b></span>
+        <div class="div3">
+            <img src="./img/image3.jpg" alt="" width="100%" height="270vh">
+
+                <div class="title">
+                    <h4 id="youthTitle">Professional Courses</h4>
+                    <p id="youthDescription">
+                      Rwanda faces & significant challenges in creating jobs, especially for its
+                      growing youth. Although many people are trained limited industries restricts job
+                      creation leaving skilled individuals unemployed. This mismatch between education
+                      and market needs highlights the need to connect skills to viable opportunities. 
+                    </p>
+                </div>
+                <!-- <div class="goal">
+            <span class="raise">Raised </span>
+            <span>Goal</span>
+        </div> -->
+        <br>
+        </div>
+
+
+
+        <!--  -->
+ <div class="div5">
+            <img src="./img/image2.png" alt="" width="100%" height="270vh">
+
+                <div class="title">
+                    <h4 id="solutionTitle">Course creation</h4>
+                    <p id="solutionDescription">Our mission is to actively and positively impact our community with the basic skills 
+                      and enough resources with a clear understanding for them to create their
+                       own income generating source
+                           </p>
+                </div>
+                <!-- <div class="goal">
+            <span class="raise">Raised </span>
+            <span>Goal</span>
+        </div> -->
+        <br>
+        </div>
+
+       <!--  -->
+        <!--  -->
+
+
+        <div class="div7">
+            <img src="./img/b.jepg" alt="" width="100%" height="270vh">
+
+                <div class="title">
+                    <h4 id="missionTitle">Photograph</h4>
+                    <p id="missionDescription">
+                       simple but powerful belief everyone deserves the 
+                      opportunity to create a better life for themselves and their families. We are dedicated 
+                      to empowering individuals in our community with the skills,
+                       resources, and mentorship they need to turn their ideas into income-generating ventures.
+                       </p>
+                </div>
+                <!-- <div class="goal">
+            <span class="raise">Raised </span>
+            <span>Goal</span>
+        </div> -->
+        <br>
+        </div>
+        <!--  -->
+
+
+
+
+        <div class="div9">
+          <img src="./img/image1.png" alt="" width="100%" height="270vh">
+
+
+          <div class="title">
+            <h4 id="missionTitle">Our Mission</h4>
+            <p id="missionDescription">
+              Our mission is a simple but powerful belief: everyone deserves the 
+              opportunity to create a better life for themselves and their families. We are dedicated 
+              to empowering individuals in our community with the skills,
+               resources, and mentorship they need to turn their ideas into income-generating ventures.
+               </p>
+        </div>
+        <!-- <div class="goal">
+    <span class="raise">Raised </span>
+    <span>Goal</span>
+</div> -->
+<br>
+      </div>
+
+
+
+      <div class="div10">
+        <img src="./img/image2.png" alt="" width="100%" height="270vh">
+
+
+        <div class="title">
+            <h4 id="missionTitle">Mechanic and Plumbers</h4>
+            <p id="missionDescription">
+              Our mission is a simple but powerful belief: everyone deserves the 
+              opportunity to create a better life for themselves and their families. We are dedicated 
+              to empowering individuals in our community with the skills,
+               resources, and mentorship they need to turn their ideas into income-generating ventures.
+               </p>
+        </div>
+        <!-- <div class="goal">
+    <span class="raise">Raised </span>
+    <span>Goal</span>
+</div> -->
+<br>
+    </div>
+
+
+    <div class="div11">
+        <img src="./img/image3.jpg" alt="" width="100%" height="270vh">
+
+
+        <div class="title">
+            <h4 id="missionTitle">Our Mission</h4>
+            <p id="missionDescription">
+              Our mission is a simple but powerful belief: everyone deserves the 
+              opportunity to create a better life for themselves and their families. We are dedicated 
+              to empowering individuals in our community with the skills,
+               resources, and mentorship they need to turn their ideas into income-generating ventures.
+               </p>
+        </div>
+        <!-- <div class="goal">
+    <span class="raise">Raised </span>
+    <span>Goal</span>
+</div> -->
+<br>
+    </div>
+
+
+    </div>
+</section>
+  <!--  -->
+
+
+
+
+<br><br>
+<div class="elevator">
+    <br><br><br><br>
+    <h4>Innovate with Expert Courses
+    </h4>
+         <div class="title">
+            <p>
+                We understand the challenges parents face. Our support services
+                 provide strategies to help you guide your 
+                 child's educational journey effectively.
+            </p>
+        </div>
+         <div class="left-side">
+            
+                <img src="./img/i.jpg" alt="" width="100%" height="270vh">
+    
+                   
+                    <!-- <div class="goal">
+                <span class="raise">Raised </span>
+                <span>Goal</span>
+            </div> -->
+            <br>
+    
+         </div>
+         <!--  -->
+ 
+         <div class="elevator2">
+            <h4>Meet the team
+            </h4> <br><br>
+         <div class="left-side2">
+
+            <img src="./img/image4.png" alt="" width="100%" height="270vh">
+            <p>
+                At ITEME , our team is dedicated to providing 
+                top-notch e-learning experiences. Each member brings unique skills 
+                and a passion for education. Together, we create engaging and accessible 
+                content to help learners achieve their goals. Our commitment to quality 
+                and innovation drives 
+                us to continuously improve and adapt to the needs of our users.
+            </p>
+                
+                <!-- <div class="goal">
+            <span class="raise">Raised </span>
+            <span>Goal</span>
+        </div> -->
+        <br>
+        <div class="title">
+            Follow us on social media <br><br>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>&nbsp;&nbsp;
+            <!-- LinkedIn Icon -->
+    <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+&nbsp;&nbsp;
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me" target="_blank" class="social-icon">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    &nbsp;&nbsp;
+    <!-- X (Twitter) Icon -->
+    <a href="https://x.com" target="_blank" class="social-icon">
+        <i class="fab fa-x"></i>
+    </a> <br>
+<span class="span4">Get exclusive assets and get Verfied</span>
+    <button class="signup-btn" id="signup-btn">Sign up &nbsp;
+    
+    </button>
+        </div>
+
+     </div>
+    </div>
+     <!--  -->
+
+
+</div>
+
+
+
+<footer>
+    <div class="footer-container">
+        <!-- Left side: Map with margin-left -->
+        <div class="map">
+            <h4>Our Location</h4>
+            <!-- Embed the Google Map with the location of Gasabo, Kigali, Rwanda -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252599.73627534727!2d29.75637824999999!3d-1.9578291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d664b8ffed387f%3A0x4416887c64d22792!2sBumbogo%2C%20Gasabo%2C%20Kigali%2C%20Rwanda!5e0!3m2!1sen!2sus!4v1698727161427!5m2!1sen!2sus"
+                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <div class="footer-links">
+                <!-- Tools -->
+                <div class="footer-link">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="#">Assessment Tools</a></li>
+                        <li><a href="#">Teacher's Resources</a></li>
+                        <li><a href="#">Learning Platforms</a></li>
+                    </ul>
+                </div>
+
+                <!-- Information -->
+                <div class="footer-link">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="footer-link">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-link">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side: Reach Out Form -->
+        <div class="contact-form">
+            <h3>Reach Out to Us Today</h3>
+            <span>Contact ITEME in Kigali for inquiries about our e-learning platform</span>
+            <form action="#" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+                <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2024 ITEME. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    
+
+
+<script>
+// Function to detect if an element is in view
+function isElementInView(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Add event listener for scroll to trigger animations on scroll up and down
+window.addEventListener("scroll", function () {
+    const sections = document.querySelectorAll('.left1, .center1, .right1');
+    sections.forEach(section => {
+        // Check if the section is in view
+        if (isElementInView(section)) {
+            // Add 'in-view' class to trigger animation
+            section.classList.add('in-view');
+        } else {
+            // Remove 'in-view' class if the section is not in view
+            section.classList.remove('in-view');
+        }
+    });
+});
+
+// Initial check in case the elements are already in view on page load
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('.left1, .center1, .right1');
+    sections.forEach(section => {
+        if (isElementInView(section)) {
+            section.classList.add('in-view');
+        }
+    });
+});
+
+
+</script>
+
